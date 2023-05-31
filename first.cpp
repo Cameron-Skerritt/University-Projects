@@ -148,20 +148,19 @@ void TimeConversion::convertHoursToSeconds(){ // option 4
         }       
 };
 
-
+// FIXED: Had an issue where I wasn't converting from minutes to seconds - 19/05/2023
 void TimeConversion::convertMinutesToSeconds(){ // option 5
-    int minutes,seconds, remainder_in_seconds;
+    int minutes,seconds;
 
     cout << "SELECTED: Minutes to seconds" << endl;
-    cout << "Enter time IN SECONDS\n> ";
-    CheckUserInput::CheckIntInput(seconds); // grabs users input in seconds
+    cout << "Enter time IN MINUTES\n> ";
+    CheckUserInput::CheckIntInput(minutes); // grabs users input in minutes
     cout << "\n";
 
-    if (seconds != 0){
-        minutes = seconds / 60;
-        remainder_in_seconds = seconds % 60; // finds remainder in seconds
+    if (minutes != 0){
+        seconds = minutes * 60; // takes seconds and times by amount of minutes by 60.
         cout << Seperator << endl;
-        cout << seconds << " seconds to a minute is: " << int(minutes) << " minutes and " << remainder_in_seconds << " seconds"<< endl;
+        cout << "\t" << " Minutes to seconds: " << int(seconds) << " seconds" << endl;
         cout << Seperator << endl;
         }
 
